@@ -6,11 +6,13 @@ import java.util.Optional;
 import ar.com.cgarcete.demo.domain.Person;
 
 public interface PersonService {
-	Long save(Person propietario);
+	
+	Long save(Person person);
 
-	Optional<Person> findOne(Long id);
+//	Optional<Person> findOne(Long id);
+	Person findOne(Long id);
 
-	Optional<Person> update(Long id, Person propietario);
+	Optional<Person> update(Long id, Person person);
 	
 	List<Person> findAll();
 	

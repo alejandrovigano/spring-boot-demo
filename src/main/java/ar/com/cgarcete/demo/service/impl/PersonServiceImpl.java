@@ -17,19 +17,25 @@ public class PersonServiceImpl implements PersonService{
 	private PersonRepository personRepository;
 
 	@Override
-	public Long save(Person propietario) {
-		Person result = personRepository.save(propietario);
+	public Long save(Person person) {
+		Person result = personRepository.save(person);
 		return result.getId();
 	}
 
-	@Override
-	public Optional<Person> findOne(Long id) {
-		Person person = personRepository.findOne(id);
-		return Optional.ofNullable(person);
-	}
+//	@Override
+//	public Optional<Person> findOne(Long id) {
+//		Person person = personRepository.findOne(id);
+//		return Optional.ofNullable(person);
+//	}
 
 	@Override
-	public Optional<Person> update(Long id, Person propietario) {
+	public Person findOne(Long id) {
+		Person person = personRepository.findOne(id);
+		return person;
+	}	
+	
+	@Override
+	public Optional<Person> update(Long id, Person person) {
 		// TODO Auto-generated method stub
 		return null;
 	}
