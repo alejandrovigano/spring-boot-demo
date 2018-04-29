@@ -11,8 +11,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import ar.com.cgarcete.demo.domain.Subscriber;
-import ar.com.cgarcete.demo.repository.SubscriberRepository;
+import ar.com.cgarcete.demo.domain.Person;
+import ar.com.cgarcete.demo.repository.PersonRepository;
 
 
 @RunWith(MockitoJUnitRunner.class)

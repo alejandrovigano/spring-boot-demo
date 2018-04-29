@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Subscriber {
+public class Person {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -17,18 +17,18 @@ public class Subscriber {
 	
 	private String email;
 	
-	public Subscriber() {
+	public Person() {
 		
 	}
 	
-	public Subscriber(Long id, String first, String last, String email) {
+	public Person(Long id, String first, String last, String email) {
 		super();
 		this.id = id;
 		this.first = first;
 		this.last = last;
 		this.email = email;
 	}
-	public Subscriber(String first, String last, String email) {
+	public Person(String first, String last, String email) {
 		super();
 		this.first = first;
 		this.last = last;

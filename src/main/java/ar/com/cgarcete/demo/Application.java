@@ -5,8 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import ar.com.cgarcete.demo.domain.Subscriber;
-import ar.com.cgarcete.demo.repository.SubscriberRepository;
+import ar.com.cgarcete.demo.domain.Person;
+import ar.com.cgarcete.demo.repository.PersonRepository;
 
 
 
@@ -18,12 +18,12 @@ public class Application {
 	}
 	
 	@Bean
-	CommandLineRunner runner(SubscriberRepository repository) {
+	CommandLineRunner runner(PersonRepository repository) {
 		
 		return args -> {
-			repository.save(	new Subscriber("cvv", "erer", "nana@gmail.com")	);
-			repository.save(	new Subscriber("dff", "vc", "asdasd@gmail.com")	);
-			repository.save(	new Subscriber("cccc", "sadas", "bigiyu@gmail.com")	);
+			repository.save(	new Person("cvv", "erer", "nana@gmail.com")	);
+			repository.save(	new Person("dff", "vc", "asdasd@gmail.com")	);
+			repository.save(	new Person("cccc", "sadas", "bigiyu@gmail.com")	);
 		};
 	}
 	
