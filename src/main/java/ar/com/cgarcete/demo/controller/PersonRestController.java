@@ -1,11 +1,16 @@
 package ar.com.cgarcete.demo.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,10 +43,34 @@ public class PersonRestController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> save(@RequestBody Person subscriber) {
-		Log.info("POST - "	+	subscriber.toString());
-		personService.save(subscriber);
-		return ResponseEntity.ok().body("Created person: "+ subscriber.toString());
+	public ResponseEntity<?> save(@RequestBody Person person) {
+		Log.info("POST - "	+	person.toString());
+		personService.save(person);
+		return ResponseEntity.ok().body("Persona creada: "+ person.toString());
 
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<?> updatePerson(@PathVariable("id") Long id, @RequestBody Person person) {
+		Log.info("PUT - "	+	person.toString());
+		Optional<Person> propietarioActualizado = personService.update(id, person);
+		if (propietarioActualizado.isPresent()) {
+			return ResponseEntity.ok().body("Persona actualizada: " + person.toString());
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deletePerson(@PathVariable("id") Long id) {
+		Log.info("DELETE - ");
+		Optional<Person> person = personService.delete(id);
+		if (person.isPresent()) {
+			return ResponseEntity.ok().body("Persona eliminada:" + id);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
 	}
 }

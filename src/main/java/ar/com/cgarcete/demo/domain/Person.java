@@ -20,6 +20,8 @@ public class Person {
 	
 	private String email;
 	
+	private boolean esEstudiante;
+	
 	public Person() {
 		
 	}
@@ -31,12 +33,14 @@ public class Person {
 		this.last = last;
 		this.email = email;
 	}
-	public Person(String first, String last, String email) {
+	public Person(String first, String last, String email, boolean esEstudiante) {
 		super();
 		this.first = first;
 		this.last = last;
 		this.email = email;
+		this.esEstudiante = esEstudiante;
 	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -61,13 +65,19 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	public boolean isEsEstudiante() {
+		return esEstudiante;
+	}
+
+	public void setEsEstudiante(boolean esEstudiante) {
+		this.esEstudiante = esEstudiante;
+	}
+
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", first=" + first + ", last=" + last + ", email=" + email + "]";
+		return "Person [id=" + id + ", first=" + first + ", last=" + last + ", email=" + email + ", esEstudiante="
+				+ esEstudiante + "]";
 	}
-	
-	
-	
 	
 }

@@ -21,9 +21,9 @@ public class Application {
 	CommandLineRunner runner(PersonRepository repository) {
 		
 		return args -> {
-			repository.save(	new Person("cvv", "erer", "nana@gmail.com")	);
-			repository.save(	new Person("dff", "vc", "asdasd@gmail.com")	);
-			repository.save(	new Person("cccc", "sadas", "bigiyu@gmail.com")	);
+			repository.save(	new Person("nanana", "rerer", "nana@gmail.com", true)	);
+			repository.save(	new Person("bebebe", "fefefe", "asdasd@gmail.com" , true)	);
+			repository.save(	new Person("rororo", "wewewe", "bigiyu@gmail.com", true)	);
 		};
 	}
 	

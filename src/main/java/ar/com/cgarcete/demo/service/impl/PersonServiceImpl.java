@@ -22,11 +22,11 @@ public class PersonServiceImpl implements PersonService{
 		return result.getId();
 	}
 
-//	@Override
-//	public Optional<Person> findOne(Long id) {
-//		Person person = personRepository.findOne(id);
-//		return Optional.ofNullable(person);
-//	}
+	@Override
+	public Optional<Person> findOnee(Long id) {
+		Person person = personRepository.findOne(id);
+		return Optional.ofNullable(person);
+	}
 
 	@Override
 	public Person findOne(Long id) {
@@ -36,8 +36,21 @@ public class PersonServiceImpl implements PersonService{
 	
 	@Override
 	public Optional<Person> update(Long id, Person person) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Person> personOptional = this.findOnee(id);
+
+		if (personOptional.isPresent()) {
+			
+			Person personOriginal = personOptional.get();
+			personOriginal.setFirst(person.getFirst());
+			personOriginal.setLast(person.getLast());
+			personOriginal.setEmail(person.getEmail());
+			personOriginal.setEsEstudiante(person.isEsEstudiante());
+			
+			Person propietarioActualizado = personRepository.save(personOriginal);
+			return Optional.of(propietarioActualizado);
+		}
+
+		return personOptional;
 	}
 
 	@Override
@@ -47,8 +60,13 @@ public class PersonServiceImpl implements PersonService{
 
 	@Override
 	public Optional<Person> delete(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Person> person = findOnee(id);
+		if (person.isPresent()) {
+			Person entity = person.get();
+			entity.setEsEstudiante(false);
+			personRepository.save(entity);
+		}
+		return person;
 	}
 
 

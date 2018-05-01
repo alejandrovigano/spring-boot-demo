@@ -9,7 +9,6 @@ public interface PersonService {
 	
 	Long save(Person person);
 
-//	Optional<Person> findOne(Long id);
 	Person findOne(Long id);
 
 	Optional<Person> update(Long id, Person person);
@@ -17,4 +16,6 @@ public interface PersonService {
 	List<Person> findAll();
 	
 	Optional<Person> delete(Long id);
+
+	Optional<Person> findOnee(Long id);
 }
