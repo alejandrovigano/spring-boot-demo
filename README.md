@@ -3,32 +3,29 @@
 Aplicacion basada en spring boot + data jpa + hateoas + h2-db + maven
 
 ## Endpoints
-
+```
 Buscar Personas
-  GET /demo/all
+```
+ GET /demo/all
 
+```
 Buscar Persona
 ```
   GET /demo/{id}
 
 ```
-```
-Obtener inmueble*
-```
-  GET /inmueble/{idInmueble}
-```
 Crear propietario
 ```
-  POST /propietario
+  POST /demo
+  
+```  
+Borrar persona
 ```
-Obtener propietario
+  DELETE /demo/{id}
+  
+``` 
+Actualizar persona
 ```
-  GET /propietario/{idPropietario]
+  PUT /demo/{id} 
+  
 ```
-Actualizar propietario
-```
-  PUT /propietario/{idPropietario} 
-```
-Obtener categorias*
-```
-  GET /categoria
